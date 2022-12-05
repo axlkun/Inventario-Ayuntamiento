@@ -1,0 +1,78 @@
+table.propiedadestabla{
+    margin-top: 2rem;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+ 
+    thead{
+        background-color: $grisOscuro;
+
+        th{
+            color: $blanco;
+            padding: 2rem;
+        }
+    }
+
+    td {
+        border-bottom: 1px solid darken($color: $gris, $amount: 20);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+    .botonesTabla2{
+        display:flex;
+        justify-content: space-between;
+        padding: 1rem 0 0 0;
+    }
+
+    .botonSeparacion2{
+        height:5rem;
+		float:left;
+		margin: 5px;
+    }
+    
+    .btnEliminar2{
+        margin-bottom: 0;
+    }
+    
+    .icono2{
+        height: 3.5rem;
+    }
+    
+}
+
+@media (max-width: 768px){
+
+    .contenedorTitulo{
+        padding: 0;
+    }
+
+    table.propiedadestabla{
+        width: 90%;
+    }
+
+    table.propiedadestabla td[data-titulo]{
+        display: flex;
+    }
+
+    table.propiedadestabla td[data-titulo]::before{
+        content: attr(data-titulo);
+        width: 14rem;
+        border-right: 1px solid gray;
+    }
+
+    table.propiedadestabla tr{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid gray;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    table.propiedadestabla thead{
+        display: none;
+    }
+}

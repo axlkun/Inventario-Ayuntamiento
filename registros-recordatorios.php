@@ -1,0 +1,108 @@
+<?php
+    require 'includes/funciones.php';
+    incluirTemplate("header-registros");
+
+    $auth = estaAutenticado();
+
+    if(!$auth){
+        header('Location: /inventario_ayuntamiento/index.php');
+    }
+
+    $rol = rolNormal();
+    if($rol === true){
+        header('Location: /inventario_ayuntamiento/index.php');
+    }
+    
+?>
+
+<main class="contenedor seccion">
+    <h1 class="titulo">Recordatorios</h1>
+
+    <div class="contenedorTitulo">
+        
+            <form action="" method="$_POST" class="contenedorBuscar">
+                <input type="text" id="camporecordatorio" name="camporecordatorio" placeholder="Ingresa tu búsqueda" class="buscar">
+            </form>
+            
+            <div >
+                <a href="/inventario_ayuntamiento/crear-recordatorio.php" class="boton boton-verde">Nuevo registro</a>
+            </div>
+        </div>
+        
+        <table class="propiedadesNodo" style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Asunto</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
+                </tr> 
+            </thead>
+
+            <tbody id="contentrecordatorio"> <!-- Mostrar los resultados --> 
+            
+            </tbody>
+        </table>
+
+</main>
+
+
+<?php if(isset($_GET['m'])){ ?>
+    <div class="flash-data" data-flashdata="<?php echo $_GET['m'];?>"></div>
+<?php } ?>
+    
+    <script>
+        $(document).on('click','.del-btn',function(e){
+            e.preventDefault();
+            const href = $(this).attr('href') 
+
+                swal({
+                    title: "¿Estás seguro?",
+                    text: "El registro se eliminará de la base de datos!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                    if (willDelete) {
+                        document.location.href = href;
+                    } 
+                    });
+
+         })
+
+         const flashdata = $('.flash-data').data('flashdata')
+         if(flashdata){
+            swal("Registro eliminado!", {
+                        icon: "success",
+                        }).then(function() {
+             window.location = "/inventario_ayuntamiento/registros-recordatorios.php";
+                });
+         }
+    </script>
+
+    <script>
+        /* Llamando a la función getData() */
+        getData()
+        /* Escuchar un evento keyup en el campo de entrada y luego llamar a la función getData. */
+        document.getElementById("camporecordatorio").addEventListener("keyup", getData)
+        /* Peticion AJAX */
+        function getData() {
+            let input = document.getElementById("camporecordatorio").value
+            let content = document.getElementById("contentrecordatorio")
+            let url = "load-recordatorios.php"
+            let formaData = new FormData()
+            formaData.append('camporecordatorio', input)
+            fetch(url, {
+                    method: "POST",
+                    body: formaData
+                }).then(response => response.json())
+                .then(data => {
+                    content.innerHTML = data
+                }).catch(err => console.log(err))
+        }
+    </script>
+
+<?php 
+   
+    incluirTemplate('footer-registros'); 
+?>

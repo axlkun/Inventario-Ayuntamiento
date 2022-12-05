@@ -1,0 +1,38 @@
+ 
+.header{
+    background-color: $colorHeaderFooter;
+    padding: 0 0 3rem 0;
+
+    img{
+        height: 8rem;
+    }
+  
+    .contenedorLogo{
+        width: 16rem;
+        height: 8rem;
+    }
+
+    .oscurecericono{
+        filter: invert(100%);
+    }
+}
+ 
+.contenido-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h1{
+        text-align: center;
+        color: $blanco;
+        font-weight: $bold;
+        line-height: 1.6;
+        max-width: 60rem; //esto es un salto de linea
+
+        @include tablet{
+            text-align: left;
+        }
+
+    }
+}
+

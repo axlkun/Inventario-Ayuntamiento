@@ -1,0 +1,21 @@
+@import 'base/normalize';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/globales';
+@import 'base/utilidades';
+@import 'base/botones';
+@import 'base/darkMode';
+
+//**UI**/
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/navegacion';
+@import 'layout/inicio';
+@import 'layout/formularios';
+@import 'layout/iniciosesion';
+@import 'layout/admin';
+@import 'layout/tabla';
+@import 'layout/tablanodos';
+@import 'layout/tablanodos2';
+
+

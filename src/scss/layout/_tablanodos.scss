@@ -1,0 +1,116 @@
+table.propiedadesNodo{
+    margin-top: 2rem;
+    //table-layout: fixed;
+    //width: auto;
+    width: 100%;
+    border-spacing: 0;
+    
+    thead{
+        background-color: $grisOscuro;
+
+        th{
+            color: $blanco;
+            padding: 2rem;
+        }
+    }
+
+    td {
+        border-bottom: 1px solid darken($color: $gris, $amount: 20);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
+        vertical-align: middle;
+
+        @media (min-width: 768px){ //aplica de 768px para arriba
+            &:last-of-type{
+                width: 18.6rem;
+            }
+        }
+        
+      }
+
+      .wrap{
+        padding-left: 2rem;
+        padding-right: 2rem;
+        white-space: pre-wrap; 
+        word-wrap: break-word; 
+        height:auto;
+      }
+
+    .botonesTabla{
+        display:flex;
+        justify-content: space-between;
+        //display: flex;
+        //justify-content: space-between;
+        padding: 1rem 0 0 0;
+        //margin: 1rem;
+        //gap: 1rem;
+    }
+
+    .botonSeparacion{
+        height:5rem;
+		// width:33%;
+		float:left;
+		margin: 5px;
+    }
+    
+    .btnEliminar{
+        margin-bottom: 0;
+    }
+    
+    .icono{
+        height: 3.5rem;
+    }
+    
+}
+
+.tablawifi{
+    margin: 0 auto;
+}
+
+@media (max-width: 768px){ //aplica de 0 a 768px
+
+    .contenedorTitulo{
+        padding: 0;
+    }
+
+    table.propiedadesNodo{
+        width: 90%;
+    }
+
+    table.propiedadesNodo td[data-titulo]{
+        display: flex;
+
+    }
+
+    td.ocultar{
+        display: none;
+    }
+
+    table.propiedadesNodo td[data-titulo]::before{
+        content: attr(data-titulo);
+        width: 14rem;
+        border-right: 1px solid gray;
+    }
+
+    table.propiedadesNodo tr{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid gray;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    table.propiedadesNodo thead{
+        display: none;
+    }
+}
+
+.formatoLetra{
+    text-transform: lowercase;
+}
+
+.formatoLetra::first-letter{
+    text-transform: uppercase;
+}
