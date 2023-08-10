@@ -7,3 +7,7 @@ And using FPDF library to generate reports
 
 To install, execute in terminal:
 npm install
+
+Credentials to access the web application:
+admin@sistemas.com
+sysadmin2022
