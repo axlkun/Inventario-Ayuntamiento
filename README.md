@@ -7,11 +7,13 @@ And using FPDF library to generate reports
 
 
 
+
 ## Installation
 
 ```bash
   npm install
 ```
+
 
 
 
@@ -22,6 +24,7 @@ To access this project, you will need to enter the following data at https://sis
 `admin@sistemas.com`
 
 `sysadmin2022`
+
 
 
 
