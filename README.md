@@ -9,7 +9,9 @@ And using FPDF library to generate reports
 
 
 ## Installation
-
+```bash
+  composer install
+```
 ```bash
   npm install
 ```
